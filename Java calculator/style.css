@@ -1,0 +1,14 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* styles.css */
+#ontainer {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center-align buttons within the container */
+}
+
+#container div {
+    margin: 0 10px; /* Add margin between buttons */
+}

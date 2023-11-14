@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nikhil's Calculator</title>
+<style> 
+#container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: left /* Center-align buttons within the container */
+}
+
+#container div {
+    margin: 0 10px; /* Add margin between buttons */
+}
+
+</style>
+</head>
+<body>
+
+<h1>Nikhil's calculator</h1>
+
+<form name = "question">
+  <p> 
+  1st number:
+  <input type="number" id="firstNumber" placeholder="First Number:">
+  </p>
+  
+<div id = "container"> 
+  <div id = "plusbut"> 
+  <p><button type="button" onclick ="plus()">+</button></p>
+  </div> 
+  <div id = "minusbut"> 
+  <p><button type="button" onclick ="minus()">-</button></p>
+  </div>
+  <div id = "dividebut"> 
+  <p><button type="button" onclick ="divide()">/</button></p>
+  </div>
+  <div id = "timesbut"> 
+  <p><button type="button"onclick ="times()">*</button></p>
+  </div>
+</div>
+<p>
+  2nd number: 
+  <input type="number" id="secondNumber" placeholder="Second Number">
+  </p>
+</form>
+<br> 
+<form name = "awnsers">
+  <p id = "yourawnser"> 
+  Your awnser: 
+  <input type="number" id="user_awnser" placeholder="Your awnser">
+  </p>
+</form>
+  
+<p id="box">Real awnser: </p> 
+<p><button id="reveal_awnser" onclick =reveal()>Reveal awnser</button></p>
+<form>
+  <p id="corrects"> 
+  Correct awnsers: 0  
+  </p>
+  <p id="wrongs">
+  Wrong awnsers: 0
+  </p>
+    <p id="percentage">
+  Percentage correct: 0  
+  </p>
+</form>
+<script>
+var awn = 0; // Declare awn outside the functions to make it accessible globally.
+var wrong = 0;
+var right = 0;
+function plus() {
+  var x = document.forms["question"]["firstNumber"].value;
+  var y = document.forms["question"]["secondNumber"].value;
+  awn = parseFloat(x) + parseFloat(y); // Update the global awn variable with the result.
+
+}
+function minus() {
+  var x = document.forms["question"]["firstNumber"].value;
+  var y = document.forms["question"]["secondNumber"].value;
+  awn = parseFloat(x) - parseFloat(y); // Update the global awn variable with the result.
+
+}
+function divide() {
+  var x = document.forms["question"]["firstNumber"].value;
+  var y = document.forms["question"]["secondNumber"].value;
+  awn = parseFloat(x) / parseFloat(y); // Update the global awn variable with the result.
+
+}
+function times() {
+  var x = document.forms["question"]["firstNumber"].value;
+  var y = document.forms["question"]["secondNumber"].value;
+  awn = parseFloat(x) * parseFloat(y); // Update the global awn variable with the result.
+  
+}
+function reveal() {
+  document.getElementById("box").innerHTML = "Real awnser: " + awn; // Set the content of the element with ID "box" to awn.
+  yourawnser()
+}
+function yourawnser() {
+  var input = document.forms["awnsers"]["user_awnser"].value;
+  if (input != awn) {
+    document.getElementById("yourawnser").style.color = "red"
+    alert("Your wrong")
+    wrong = wrong + 1 
+  }
+  if (input == awn) {
+    document.getElementById("yourawnser").style.color = "green"
+    alert("Correct")
+    right = right + 1 
+  }
+  document.getElementById("corrects").innerHTML = "Correct awnsers: " + right;
+  document.getElementById("wrongs").innerHTML = "Wrong awnsers: " + wrong;
+  document.getElementById("percentage").innerHTML = "Percentage correct: " + (right/(right+wrong))*100 + " %";
+}
+</script>
+
+
+
+</body>
+</html>

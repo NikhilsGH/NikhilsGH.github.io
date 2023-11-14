@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  color:#20B22A;
+  size:12pt;
+  font-family:arial;
+}
+
+#wrapper {
+  margin: auto;
+  background-color: #ADD8E6;
+  width: 40em;
+  padding: 5px;
+}
+
+#header {
+  height: 70px;
+  border-width: 2px;
+  border-color: #B2BCC6;
+  border-style: dashed dotted; 
+}
+
+#header img{
+  height: 70px;
+  float:left;}
+#nav {
+  float: left; 
+}
